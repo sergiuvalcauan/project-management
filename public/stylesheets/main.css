@@ -1,0 +1,53 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+html {
+    background: white;
+}
+
+
+/* Home */
+.coverPhoto {
+    background-image: url(http://www.systc.com/images/masterslider/slide-bg-03.jpg);
+    min-height: 500px;
+    background-size: cover;
+}
+.colorWhite {
+    color:white;
+}
+.imgDiv {
+    text-align: center;
+    margin-top: 50px;
+}
+.iconsHome {
+    border-radius: 150px;
+}
+.iconTitles {
+    text-align: center;
+    margin-top: 20px;
+}
+.description {
+    width: 300px;
+    margin: auto;
+    margin-top: 10px;
+    font-size: 15px;
+    margin-bottom: 50px;
+}
+.resize:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.resize {
+    transition: all .2s ease-in-out;
+}
+.menuItems {
+    padding: 10px
+}
+/* Home END */
+
+/* Projects*/
+
+.projectsDiv {
+
+    margin: 20px
+}
