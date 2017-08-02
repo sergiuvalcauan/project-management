@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!-->
-<html lang="en" ng-app="newapp"><!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
-		<link href="/stylesheets/angular-material.css" rel="stylesheet">
-		<link href="/stylesheets/mdbootstrap.min.css" rel="stylesheet">
-		<link href="/stylesheets/main.css" rel="stylesheet">
-		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	</head>
-	<body>
+<% include templates/main.ejs%>
+<% include templates/header %>
 
-	<% include templates/header %>
 
 	<div flex style="background-color:white" layout-align="center center">
 		<div class="coverPhoto" layout="column" layout-align="center center">
@@ -68,17 +55,6 @@
 
 		</div>
 	</div>
-		<script src="/javascripts/jquery.min.js"></script>
-		<script src="/javascripts/tether.min.js" type="text/javascript"></script>
-		<script src="/javascripts/bootstrap.min.js"></script>
-		<script src="/javascripts/mdbootstrap.min.js"></script>
-		<script src="/javascripts/site.js"></script>
-		<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
-		<script src="/javascripts/angular.min.js"></script>
-		<script src="/javascripts/angular-aria.min.js"></script>
-		<script src="/javascripts/angular-animate.js"></script>
-		<script src="/javascripts/angular-material.min.js"></script>
-		<script src="/javascripts/ng-messages.js"></script>
-		<script src="/javascripts/mainApp.js"></script>
-	</body>
-</html>
+
+
+<% include templates/main1.ejs %>

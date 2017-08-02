@@ -7,19 +7,18 @@ var passport = require('passport');
 var User = require('../models/user');
 var Task = require('../models/task');
 var _ = require('underscore');
+var ObjectID = require('mongodb').ObjectID;
+
 
 /* GET home page. */
 router.get('/:id', function(req, res, next) {
 
-        console.log(req.params.id);
+        idProiect = req.params.id;
 
         Project.findById(req.params.id , function (err, project) {
             if (err) return console.log(err);
 
-            console.log(project);
-
             if(project){
-
 
                 User.findById(req.session.passport.user ,'-password' , function (err, user) {
 
@@ -34,7 +33,7 @@ router.get('/:id', function(req, res, next) {
                     }); // retrieve all the tasks ids from the projects collection
 
 
-                    Task.collection.find({ $and: [ { _id: { $in: tasksid } }, { _id: { $in: projid } } ] }).toArray((err, data) => {    //{ _id : {$in: tasksid} }
+                    Task.collection.find({ $and: [ { _id: { $in: tasksid } }, { _id: { $in: projid } } ] }).toArray((err, data) => {
                         // D=JSON.stringify(data);
                         // console.log("PFFFF: "+ D);
                             res.render('tasks', {
@@ -48,6 +47,54 @@ router.get('/:id', function(req, res, next) {
 
             }
         });
+
+});
+
+
+
+router.post('/', function(req, res, next){
+
+    var info = {
+        'Summary': req.body.taskName,
+        _id: new ObjectID(),
+        'Status': "NotStarted"
+    };
+
+    var db = req.db;
+
+    User.findById(req.session.passport.user ,'-password' , function (err, user) {
+        if (err) return console.log(err);
+
+        if (user) {
+            db.collection('users').update({_id: user._id}, {$push: { tasks: {"id": info._id, "name": info.Summary}} } )
+        }
+    });
+
+    Task.collection.insert(info, function(err, result) {
+        if (err) return console.log(err)
+
+    });
+
+
+    Project.findById( idProiect , function (err, project) {
+        if (err) return console.log(err);
+
+        if (project) {
+            db.collection('project').update({_id: project._id}, {$push: { tasks: {"id": info._id, "name": info.Summary, "Status": "Notstarted"}} } )
+        }
+    });
+
+
+
+    // Project.findById( idProiect , function (err, proiect) {
+    //
+    //     proiect.update( {$push: { tasks: {"id": info._id, "name": info.Summary, "Status": info.Status }} } , {upsert: true} , function(err, numberAffected, raw) { });
+    //
+    // });
+
+
+    res.redirect('back');
+
 
 });
 

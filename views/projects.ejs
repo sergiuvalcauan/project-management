@@ -1,28 +1,31 @@
+<% include templates/main.ejs%>
+<% include templates/header %>
+<% include templates/sidenav %>
 
-		<% include templates/main.ejs%>
-		<% include templates/header %>
-		<% include templates/sidenav %>
-
-			<div layout="row" flex-offset-gt-md="25" flex-offset-gt-lg="20" flex-gt-md="80" style="margin-top:70px"
+		<div>
+			 <div layout="row" flex-offset-gt-md="25" flex-offset-gt-lg="20" flex-gt-md="80" style="margin-top:70px"
 			 layout-wrap layout-align="center center">
 
+					<h2 style="display:none;" id="uid"> <%= JSON.stringify(percentege) %> </h2>
+					<h2 style="display:none;" id="uid1"> <%= JSON.stringify(project) %> </h2>
 
-			<% for (var i=0; i<project.length; i++){ %>
-
+			  <% for (var i=0; i<project.length; i++){ %>
 
 						<div flex-gt-sm="45" flex="95" style="min-height: 300px;" flex  class="md-whiteframe-12dp projectsDiv">
 							<a id="<%= project[i]._id %>"  href="tasks/<%= project[i]._id%>" />
 								<h1 style="padding:20px"> <%= project[i].Name %> </h1>
 							</a>
+
+							<div class="widget">
+								<div class="chart chart-container <%=project[i].Name%>">
+								</div>
+							</div>
 						</div>
 
+			 <% } %>
 
-			<% } %>
-
-
-
-				<div ng-controller="showForm" flex-gt-sm="45" flex="95" style="min-height: 300px;" flex  class="md-whiteframe-12dp projectsDiv">
-					<div flex layout="column" layout-align="center center" style="min-height: 300px" ng-hide="form">
+				<div ng-controller="showForm" flex-gt-sm="45" flex="95" style="min-height: 300px" flex  class="md-whiteframe-12dp projectsDiv">
+					<div flex layout="column" layout-align="center center" style="min-height: 300px; " ng-hide="form">
 						<a ng-click="showForm()" href=""><i class="icon-plus"></i> New Project</a>
 					</div>
 
@@ -49,7 +52,7 @@
 					</form>
 				</div>
 			</div>
+		</div>
 
 
-
-		<% include templates/main1 %>
+<% include templates/main1.ejs %>

@@ -90,7 +90,7 @@ app.use(function(req, res, next) {
                     res.locals.user = user;
                     console.log(user);
                 } else {
-                    req.session.user = 'user'
+                    req.session.user = 'user';
                     res.locals.user = 'none';
                     console.log(user);
                 }
