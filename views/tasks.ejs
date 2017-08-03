@@ -17,8 +17,11 @@
 								<div class="tile__name">Not Started</div>
 								<div class="tile__list">
 									<% for (var i=0; i<task.length; i++){  %>
-										<% if(task[i].Status == 'NotStarted'){ %>
-												<div> <span> <%= task[i].Summary %> </span> </div>
+										<% if(task[i].Status == 'NotStarted'){ console.log(task[i])%>
+												<div>
+													<span> <%= task[i].Summary %> </span>
+													<span style="display:none;" > <%= task[i]._id %> </span>
+												</div>
 										<% } %>
 									<% } %>
 								</div>
@@ -28,7 +31,7 @@
 								<div class="tile__name">In Progress</div>
 								<div class="tile__list">
 									<% for (var i=0; i<task.length; i++){  %>
-										<% if(task[i].Status == 'InProgress'){ %>
+										<% if(task[i].Status == 'InProgress'){ console.log(task[i]) %>
 										<div> <span> <%= task[i].Summary %> </span> </div>
 										<% } %>
 									<% } %>
@@ -39,7 +42,7 @@
 								<div class="tile__name">Completed</div>
 								<div class="tile__list">
 									<% for (var i=0; i<task.length; i++){  %>
-										<% if(task[i].Status == 'Completed'){ %>
+										<% if(task[i].Status == 'Completed'){ console.log(task[i]) %>
 										<div> <span> <%= task[i].Summary %> </span> </div>
 										<% } %>
 									<% } %>

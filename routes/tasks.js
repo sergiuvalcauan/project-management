@@ -42,7 +42,6 @@ router.get('/:id', function(req, res, next) {
                             })
                     });
 
-
                 });
 
             }
@@ -93,10 +92,23 @@ router.post('/', function(req, res, next){
     // });
 
 
+
+
     res.redirect('back');
 
 
 });
+
+
+router.post('/:id/tes', function(req,res){
+
+    var aaa = req.body;
+    console.log(aaa);
+
+
+
+})
+
 
 
 // router.get('/searching', function(req,res){

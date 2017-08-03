@@ -18,7 +18,35 @@ function dragndrop(){
     [].forEach.call(document.getElementById('multi').getElementsByClassName('tile__list'), function (el){
         Sortable.create(el, {
             group: 'photo',
-            animation: 150
+            animation: 150,
+            onAdd: function(evt){
+                console.log(evt);
+
+                var from = evt.from.previousElementSibling.innerHTML.replace(/ /g,'');
+                var to = evt.to.previousElementSibling.innerHTML.replace(/ /g,'');
+                var taskID = evt.item.lastElementChild.innerHTML.replace(/ /g,'');
+                // console.log(from);
+                // console.log(to);
+                // console.log(taskID)
+
+                dataa = {
+                    'From': from,
+                    'To': to,
+                    'TaskID': taskID
+                }
+                console.log(dataa)
+
+
+
+                $.ajax({
+                    type: "POST",
+                    url: window.location.pathname+'/tes',
+                    data: dataa,
+                    success: function() {
+                        console.log('ok')
+                    }
+                });
+            }
         });
     });
 
