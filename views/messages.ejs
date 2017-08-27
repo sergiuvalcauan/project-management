@@ -1,80 +1,80 @@
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en"><!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
-		<title>Messages - Akira</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
-		<link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet">
-		<link href="/stylesheets/site.css" rel="stylesheet">
-		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	</head>
-	<body>
+<head>
+	<meta charset="utf-8">
+	<title>Messages - Akira</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+	<link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="/stylesheets/site.css" rel="stylesheet">
+	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
 
-		<% include templates/header %>
+	<% include templates/header %>
 
-				<div class="span9">
-					<h1>
-						Messages
-					</h1>
+	<div class="span9">
+		<h1>
+			Messages
+		</h1>
 
-					<ul class="messages">
-						<li class="well">
-							<p class="message">
-								Ut fermentum tortor at enim blandit gravida et et odio. Quisque eu libero vitae nibh malesuada sagittis. Integer eget turpis velit. Maecenas auctor eleifend ante in dictum. Proin mattis dictum imperdiet. Nam sed leo ut massa volutpat pharetra eget vel nisi. Vestibulum vel nunc felis, in ultrices neque. Duis ut rutrum lectus. Vivamus ultricies aliquam est ac gravida. Nulla facilisis sem sed est sagittis sed auctor turpis mollis. Duis ultricies viverra dapibus. Nunc lectus quam, rutrum aliquet cursus vitae, gravida vel arcu.
-							</p>
-							<span class="meta">Written <em>2 weeks ago</em> by <em>Jill</em></span>
-						</li>
-						<li class="well">
-							<p class="message">
-								Donec id consequat odio. Etiam felis tellus, pretium tincidunt malesuada quis, vestibulum a leo. Cras tortor enim, elementum nec pretium non, vestibulum sit amet massa. Vivamus non velit quis purus luctus pretium et ut quam. Aenean eu urna nulla, quis iaculis nunc. Nam consectetur erat nec turpis dapibus ac sodales dolor pulvinar. Fusce eu consectetur risus. In ut erat sit amet nunc tempor mattis sit amet id diam.
-							</p>
-							<span class="meta">Written <em>1 week ago</em> by <em>John</em></span>
-						</li>
-					</ul>
+		<ul class="messages">
+			<li class="well">
+				<p class="message">
+					Ut fermentum tortor at enim blandit gravida et et odio. Quisque eu libero vitae nibh malesuada sagittis. Integer eget turpis velit. Maecenas auctor eleifend ante in dictum. Proin mattis dictum imperdiet. Nam sed leo ut massa volutpat pharetra eget vel nisi. Vestibulum vel nunc felis, in ultrices neque. Duis ut rutrum lectus. Vivamus ultricies aliquam est ac gravida. Nulla facilisis sem sed est sagittis sed auctor turpis mollis. Duis ultricies viverra dapibus. Nunc lectus quam, rutrum aliquet cursus vitae, gravida vel arcu.
+				</p>
+				<span class="meta">Written <em>2 weeks ago</em> by <em>Jill</em></span>
+			</li>
+			<li class="well">
+				<p class="message">
+					Donec id consequat odio. Etiam felis tellus, pretium tincidunt malesuada quis, vestibulum a leo. Cras tortor enim, elementum nec pretium non, vestibulum sit amet massa. Vivamus non velit quis purus luctus pretium et ut quam. Aenean eu urna nulla, quis iaculis nunc. Nam consectetur erat nec turpis dapibus ac sodales dolor pulvinar. Fusce eu consectetur risus. In ut erat sit amet nunc tempor mattis sit amet id diam.
+				</p>
+				<span class="meta">Written <em>1 week ago</em> by <em>John</em></span>
+			</li>
+		</ul>
 
-					<form id="message-reply" action="" class="form-horizontal"> <!-- class="form-horizontal hidden" -->
-						<fieldset>
-							<div class="control-group">
-								<label class="control-label" for="input">Message</label>
-								<div class="controls">
-									<input class="input-xlarge" id="mes" autocomplete="off" type="text" style="width: 98%" />
-								</div>
-							</div>
-							<div class="form-actions">
-								<button type="button" class="btn btn-primary">Send</button>
-							</div>
-						</fieldset>
-					</form>
+		<form id="message-reply" action="" class="form-horizontal"> <!-- class="form-horizontal hidden" -->
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label" for="input">Message</label>
+					<div class="controls">
+						<input class="input-xlarge" id="mes" autocomplete="off" type="text" style="width: 98%" />
+					</div>
 				</div>
-			</div>
-		</div>
+				<div class="form-actions">
+					<button type="button" class="btn btn-primary">Send</button>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	</div>
+	</div>
 
-		<script src="/socket.io/socket.io.js"></script>
-		<script src="/javascripts/jquery.min.js"></script>
-		<script src="/javascripts/bootstrap.min.js"></script>
-		<script src="/javascripts/site.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/javascripts/jquery.min.js"></script>
+	<script src="/javascripts/bootstrap.min.js"></script>
+	<script src="/javascripts/site.js"></script>
 
-		<script>
-  			var socket = io.connect('http://localhost:3000');
-			
-			socket.on('connect', function(data) {
-        		socket.emit('join', 'Hello World from client');
-    		});
+	<script>
+		var socket = io.connect('http://localhost:3000');
 
-			$('form').submit(function(e){
-				e.preventDefault();
-				socket.emit('chat message', $('#mes').val() );
-				$('#mes').val('');
-				// return false; - not refreshing the page
-			});
+		socket.on('connect', function(data) {
+			socket.emit('join', 'Hello World from client');
+		});
 
-			socket.on('chat message', function(msg){
-      			$('.messages').append($('<li class="well">').text(msg));
-    		});
+		$('form').submit(function(e){
+			e.preventDefault();
+			socket.emit('chat message', $('#mes').val() );
+			$('#mes').val('');
+			// return false; - not refreshing the page
+		});
+
+		socket.on('chat message', function(msg){
+			$('.messages').append($('<li class="well">').text(msg));
+		});
 
 
-		</script>
-	</body>
+	</script>
+</body>
 </html>

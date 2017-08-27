@@ -1,117 +1,36 @@
-<div class="container">
-    <div class="navbar">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">Akira</a>
-                <div class="nav-collapse">
-                    <ul class="nav">
-                        <li class="active">
-                            <a href="/">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="/settings">Account Settings</a>
-                        </li>
-                        <li>
-                            <a href="/help">Help</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tours <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="/help">Introduction Tour</a>
+<nav class="navbar navbar-toggleable-md" style="position:fixed; width:100%;background-color:white; z-index:2; top:0">
+    <div class="container" flex>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#" ui-sref="app.home" style="float:left">
+            <strong>Project</strong>
+        </a>
+        <md-button hide-gt-md ng-controller="AppCtrl" ng-click="toggleLeft()" class="md-raised">
+            Menu
+        </md-button>
+        <div class="collapse navbar-collapse" id="navbarNav1"  layout-align="end end">
+            <ul class="navbar-nav ">
+                <li class="nav-item active">
+                    <a href="/login" class="nav-link">Login <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="/projects" class="nav-link" >Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/messages" class="nav-link">Chat</a>
+                </li>
+                <!--
+                                <li class="nav-item dropdown btn-group">
+                                    <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                    <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
+                                        <a class="dropdown-item">Action</a>
+                                        <a class="dropdown-item">Another action</a>
+                                        <a class="dropdown-item">Something else here</a>
+                                    </div>
                                 </li>
-                                <li>
-                                    <a href="/help">Project Organisation</a>
-                                </li>
-                                <li>
-                                    <a href="/help">Task Assignment</a>
-                                </li>
-                                <li>
-                                    <a href="/help">Access Permissions</a>
-                                </li>
-                                <li class="divider">
-                                </li>
-                                <li class="nav-header">
-                                    Files
-                                </li>
-                                <li>
-                                    <a href="/help">How to upload multiple files</a>
-                                </li>
-                                <li>
-                                    <a href="/help">Using file version</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="navbar-search pull-left" >
-                        <input type="text" class="search-query span2" placeholder="Search" />
-                    </form>
-                    <ul class="nav pull-right">
-                        <li>
-                            <% if(user.email) { %>
-                                <a href="/profile"> <%= user.email %> </a>
-                            <% } else if (locals.user == 'no') { %>
-                                <a href="#"> @login </a>
-                            <% } else{ %>
-                                console.log(locals)
-                            <% } %>
-                        </li>
-                        <li>
-                            <a href="/login/logout">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                -->
+            </ul>
         </div>
     </div>
-    <div class="row">
-        <div class="span3">
-            <div class="well" style="padding: 8px 0;">
-                <ul class="nav nav-list">
-                    <li class="nav-header">
-                        Akira
-                    </li>
-                    <li class="active">
-                        <a href="/"><i class="icon-white icon-home"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="/projects"><i class="icon-folder-open"></i> Projects</a>
-                    </li>
-                    <li>
-                        <a href="/tasks"><i class="icon-check"></i> Tasks</a>
-                    </li>
-                    <li>
-                        <a href="/messages"><i class="icon-envelope"></i> Messages</a>
-                    </li>
-                    <li>
-                        <a href="/files"><i class="icon-file"></i> Files</a>
-                    </li>
-                    <li>
-                        <a href="/activity"><i class="icon-list-alt"></i> Activity</a>
-                    </li>
-                    <li class="nav-header">
-                        Your Account
-                    </li>
-                    <li>
-                        <a href="/profile"><i class="icon-user"></i> Profile</a>
-                    </li>
-                    <li>
-                        <a href="/settings"><i class="icon-cog"></i> Settings</a>
-                    </li>
-                    <li class="divider">
-                    </li>
-                    <li>
-                        <a href="/help"><i class="icon-info-sign"></i> Help</a>
-                    </li>
-                    <li class="nav-header">
-                        Bonus Templates
-                    </li>
-                    <li>
-                        <a href="/gallery"><i class="icon-picture"></i> Gallery</a>
-                    </li>
-                    <li>
-                        <a href="/blank"><i class="icon-stop"></i> Blank Slate</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+</nav>

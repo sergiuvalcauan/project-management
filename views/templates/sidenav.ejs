@@ -1,0 +1,19 @@
+<div  layout="column" flex style="height: 500px; position:absolute;" ng-cloak>
+    <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4" style="position:fixed; top:65px; background: rgba(255,255,255,0.8);">
+
+
+        <md-content layout-margin style="background: rgba(255,255,255,0.5);">
+            <div layout="row" layout-align="center center" flex style="background: rgba(255,255,255,0);">
+                <ul>
+                    <li class="menuItems"><a href="#">My profile</a></li>
+                    <li class="menuItems"><a ui-sref="app.tasks">Tasks</a></li>
+                    <li class="menuItems"><a href=/messages>Chat</a></li>
+                    <li class="menuItems"><a href="#">Attachments</a></li>
+                </ul>
+            </div>
+
+        </md-content>
+    </md-sidenav>
+    <md-content flex layout-padding>
+    </md-content>
+</div>

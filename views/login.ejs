@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!-->
-<html lang="en"><!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
-		<title>Login - Akira</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
-		<link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet">
-		<link href="/stylesheets/site.css" rel="stylesheet">
-		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	</head>
-	<body>
+<% include templates/main.ejs %>
+
+
 		<div id="login-page" class="container">
 
 			<% if(hasErrors) {%>
@@ -26,21 +16,61 @@
 			<% } %>
 
 			<h1>Login</h1>
-			<form id="login-form" method="post" class="well" action="/login">
-				<input type="text" class="span2" name="email" placeholder="Email" /><br />
-				<input type="password" class="span2" name="password" placeholder="Password" /><br />
-				<label class="checkbox"><input type="checkbox" name="remeberme"/> Remember me </label>
-				<button type="submit" class="btn btn-primary">Sign in</button>
-				<button type="submit" class="btn">Forgot Password</button>
+			<form id="login-form" name="loginForm" method="post" class="well" action="/login">
+				<div style="margin:75px auto;" flex-gt-sm="70" flex>
+					<div layout="column" flex style="padding:20px; margin:auto"
+						 class="md-whiteframe-14dp register-container"
+						 flex-gt-xs="70"
+						 flex-xs="100" flex-gt-sm="60" flex-gt-md="50" flex-gt-lg="40">
+
+
+							<div layout="row">
+								<h3 style="margin:auto	">Login</h3>
+							</div>
+							<div layout-fill class="register-input">
+
+								<md-input-container id="email" class="md-block">
+									<label>Email:</label> <input name="email"
+																 required >
+									<div ng-messages="loginForm.email.$error">
+										<div ng-message="required">This field is needed !</div>
+										<div ng-message="md-maxlength">Number of characters is too long
+											!</div>
+										<div ng-message="minlength">Number of characters is too short !</div>
+									</div>
+								</md-input-container>
+
+								<md-input-container class="md-block"> <label>Password:</label>
+									<input name="password" type="password"
+										   required>
+									<div ng-messages="loginForm.password.$error">
+										<div ng-message="required">This field is needed !</div>
+										<div ng-message="md-maxlength">Number of characters is too long
+											!</div>
+										<div ng-message="minlength">Number of characters is too shirt !</div>
+									</div>
+								</md-input-container>
+
+								<div layout="column" layout-align="center center">
+
+									<button type="submit" class="btn btn-info btn-round"
+											ng-disabled="loginForm.$invalid">Login</button>
+									<a href="/forgot">Forgot Your Password?
+									</a>
+
+								</div>
+
+							</div>
+					</div>
 			</form>
+				</div>
+
+
 		</div>
 
 		<div>
-          	<h4 class="pull-right"><a href="/forgot">Forgot Your Password?</a></h4>
+
       	</div>
 
-		<script src="/javascripts/jquery.min.js"></script>
-		<script src="/javascripts/bootstrap.min.js"></script>
-		<script src="/javascripts/site.js"></script>
-	</body>
-</html>
+<% include templates/main1.ejs %>
+
