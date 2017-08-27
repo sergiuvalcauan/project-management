@@ -17,7 +17,7 @@
 	<div class="span9">
 		<h1>
 			<br><br>
-			Messages
+			Messages  <span id="usr" style="visibility: hidden"> <%= user.email %> </span>
 		</h1>
 
 		<ul class="messages">
@@ -58,6 +58,11 @@
 			socket.emit('join', 'Hello World from client');
 		});
 
+		nickname = $('#usr').text()
+
+		socket.emit('send-nickname', nickname);
+
+
 		$('form').submit(function(e){
 			e.preventDefault();
 			socket.emit('chat message', $('#mes').val() );
@@ -66,10 +71,8 @@
 		});
 
 		socket.on('chat message', function(msg){
-			$('.messages').append($('<li class="well">').text(msg));
+			$('.messages').append($('<li class="well">').text( nickname +': '+msg));
 		});
-
-
 	</script>
 </body>
 </html>

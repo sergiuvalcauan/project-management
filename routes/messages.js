@@ -16,6 +16,12 @@ router.get('/', function(req, res, next) {
             console.log(data);
         });
 
+        socket.on('send-nickname', function(nickname) {
+            socket.nickname = req.session.passport.user;
+            res.io.emit('send-nickname', socket.nickname)
+            console.log(socket.nickname)
+        });
+
         socket.on('chat message', function(msg) {
             console.log('message: ' + msg);
             res.io.emit('chat message', msg);
