@@ -19,7 +19,7 @@
 									<% for (var i=0; i<task.length; i++){  %>
 										<% if(task[i].Status == 'NotStarted'){ console.log(task[i])%>
 												<div>
-													<span class="<%= task[i]._id %>"> <%= task[i].Summary %> </span>
+													<a href="/task/<%= task[i]._id %>" ><span class="<%= task[i]._id %>"> <%= task[i].Summary %> </span></a>
 												</div>
 										<% } %>
 									<% } %>
@@ -31,7 +31,9 @@
 								<div class="tile__list">
 									<% for (var i=0; i<task.length; i++){  %>
 										<% if(task[i].Status == 'InProgress'){ console.log(task[i]) %>
-										<div> <span class="<%= task[i]._id %>"> <%= task[i].Summary %> </span> </div>
+												<div>
+													<a href="/task/<%= task[i]._id %>" ><span class="<%= task[i]._id %>"> <%= task[i].Summary %> </span></a>
+												</div>
 										<% } %>
 									<% } %>
 								</div>
@@ -42,7 +44,9 @@
 								<div class="tile__list">
 									<% for (var i=0; i<task.length; i++){  %>
 										<% if(task[i].Status == 'Completed'){ console.log(task[i]) %>
-										<div> <span class="<%= task[i]._id %>"> <%= task[i].Summary %> </span> </div>
+												<div>
+													<a href="/task/<%= task[i]._id %>" ><span class="<%= task[i]._id %>"> <%= task[i].Summary %> </span></a>
+												</div>
 										<% } %>
 									<% } %>
 								</div>

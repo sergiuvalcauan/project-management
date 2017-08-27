@@ -38,6 +38,7 @@ var profile = require('./routes/profile');
 var projects = require('./routes/projects');
 var settings = require('./routes/settings');
 var tasks = require('./routes/tasks');
+var task = require('./routes/task')
 
 var app = express();
 
@@ -126,6 +127,7 @@ app.use('/profile', profile)
 app.use('/projects', projects)
 app.use('/settings', settings)
 app.use('/tasks', tasks)
+app.use('/task', task)
 app.use('/forgot', forgot)
 
 // catch 404 and forward to error handler

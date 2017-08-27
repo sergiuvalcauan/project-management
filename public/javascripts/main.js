@@ -24,7 +24,7 @@ function dragndrop(){
 
                 var from = evt.from.previousElementSibling.innerHTML.replace(/ /g,'');
                 var to = evt.to.previousElementSibling.innerHTML.replace(/ /g,'');
-                var taskID = evt.item.firstElementChild.className.replace(/ /g,'');
+                var taskID = evt.item.firstElementChild.firstElementChild.className.replace(/ /g,'');
 
                 // var itemEl = evt.item;  // dragged HTMLElement
                 // console.log(itemEl.children[0].setAttribute('class', taskId));
