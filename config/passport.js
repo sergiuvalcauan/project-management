@@ -24,19 +24,14 @@ passport.use('local', new LocalStrategy({
         if(err){
             return done(err);
         }
-        
+
         var messages = [];
-        
-        // if(!user || !user.validPassword(password)){
-        //     messages.push('Email Does Not Exist Or Password is Invalid')
-        //     return done(null, false, req.flash('error', messages));
-        // }
 
         if(!user || !user.validPassword(password)){
             messages.push('Email Does Not Exist Or Password is Invalid')
             return done(null, false, req.flash('error', messages));
         }
 
-        return done(null, user); 
+        return done(null, user);
     });
 }));

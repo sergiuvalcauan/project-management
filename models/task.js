@@ -6,11 +6,8 @@ var taskSchema = mongoose.Schema({
     Due_Date: {type: Date , default: ''},
     Status: {type: Number, default: ''},
     // User_id: {type: ObjectID, default: ''}
-    User_id : [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }]
+    User_id : {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
 
-module.exports = mongoose.model('Task', taskSchema, 'task' );
+module.exports = mongoose.model('Task', projectSchema, 'task' );

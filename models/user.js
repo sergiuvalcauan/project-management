@@ -7,13 +7,6 @@ var userSchema = mongoose.Schema({
     role: {type: String, default: ''},
     company: { type: String, default: ''},
 
-    // tasks: [Schema.Types.ObjectId],
-    // projects: [Schema.Types.ObjectId],  ? sau
-    // tasks : [{
-    //     id : Schema.Types.ObjectId,
-    //     name : String
-    // }]
-
     tasks : [{
         id : {type: mongoose.Schema.Types.ObjectId , ref: 'Task'},
         name : String

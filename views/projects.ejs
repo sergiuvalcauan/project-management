@@ -1,35 +1,58 @@
-<% include templates/main.ejs%>
-<% include templates/header %>
-<% include templates/sidenav %>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title> <%= title %></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+		<link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="/stylesheets/site.css" rel="stylesheet">
+		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	</head>
+	<body>
 
-		<div>
-			 <div layout="row" flex-offset-gt-md="25" flex-offset-gt-lg="20" flex-gt-md="80" style="margin-top:70px"
-			 layout-wrap layout-align="center center">
+		<% include templates/header %>
 
-					<h2 style="display:none;" id="uid"> <%= JSON.stringify(percentege) %> </h2>
-					<h2 style="display:none;" id="uid1"> <%= JSON.stringify(project) %> </h2>
+				<div class="span9">
+					<h1>
+						Projects
+					</h1>
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Client</th>
+								<th>Tasks</th>
+								<th>Messages</th>
+								<th>Files</th>
+								<th>Progress</th>
+							</tr>
+						</thead>
 
-			  <% for (var i=0; i<project.length; i++){ %>
+						<tbody>
 
-						<div flex-gt-sm="45" flex="95" style="min-height: 300px;" flex  class="md-whiteframe-12dp projectsDiv">
-							<a id="<%= project[i]._id %>"  href="tasks/<%= project[i]._id%>" />
-								<h1 style="padding:20px"> <%= project[i].Name %> </h1>
-							</a>
+								<% for (var i=0; i<project.length; i++){ %>
+									<tr>
+										<td> <%= project[i].Name %> </td>
+										<td> <%= project[i].Client %> </td>
+										<td><span class="badge"> <%= project[i].Tasks %> </span></td>
+										<td><span class="badge"> <%= project[i].Messages %> </span></td>
+										<td><span class="badge"> <%= project[i].Files %> </span></td>
+										<td>
+											<div class="progress">
+												<div class="bar" style="width: 50%"></div>
+											</div>
+										</td>
+										<td> <button class="delete">Delete</button> </td>
+										<td style="display:none"><span class="projectid" > <%= project[i]._id %></span></td>
+									<tr>
+								<% } %>
 
-							<div class="widget">
-								<div class="chart chart-container <%=project[i].Name%>">
-								</div>
-							</div>
-						</div>
-
-			 <% } %>
-
-				<div ng-controller="showForm" flex-gt-sm="45" flex="95" style="min-height: 300px" flex  class="md-whiteframe-12dp projectsDiv">
-					<div flex layout="column" layout-align="center center" style="min-height: 300px; " ng-hide="form">
-						<a ng-click="showForm()" href=""><i class="icon-plus"></i> New Project</a>
-					</div>
-
-					<form action="/projects" id="new-project"  method="POST" class="form-horizontal hidden" ng-show="form" >
+						</tbody>
+					</table>
+					<a class="toggle-link" href="#new-project"><i class="icon-plus"></i> New Project</a>
+					<form action="/projects" id="new-project"  method="POST" class="form-horizontal hidden">
 						<fieldset>
 							<legend>New Project</legend>
 							<div class="control-group">
@@ -51,8 +74,16 @@
 						</fieldset>
 					</form>
 				</div>
+			<div class="db" style="border: 1px solid black; height: 200px; clear: both">
+				<ul class="dbusers">
+
+				</ul>
+			</div>
 			</div>
 		</div>
-
-
-<% include templates/main1.ejs %>
+		<script src="/javascripts/jquery.min.js"></script>
+		<script src="/javascripts/bootstrap.min.js"></script>
+		<script src="/javascripts/site.js"></script>
+		<script src="/javascripts/main.js"></script>
+	</body>
+</html>

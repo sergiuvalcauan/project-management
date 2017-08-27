@@ -18,8 +18,7 @@
 					<h1>
 						Messages
 					</h1>
-					<h2>
-					</h2>
+
 					<ul class="messages">
 						<li class="well">
 							<p class="message">
@@ -33,47 +32,18 @@
 							</p>
 							<span class="meta">Written <em>1 week ago</em> by <em>John</em></span>
 						</li>
-						<li class="well">
-							<p class="message">
-								Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus enim nibh, congue nec tincidunt sed, luctus ullamcorper leo. Nunc ac mauris augue. Nam non nulla tellus, vitae volutpat nibh. Maecenas fringilla vestibulum neque vitae tristique. Ut fermentum accumsan dolor, ut tincidunt lacus dictum non. Proin non ultrices libero. Praesent hendrerit, dolor ut facilisis porta, lorem massa ullamcorper dolor, at dictum elit augue vel lorem. Pellentesque vitae elit quis erat congue gravida ac sed urna. Vivamus vitae purus lectus. Maecenas nec dui lorem. Mauris viverra, est et mattis malesuada, sapien lectus congue justo, eget ultricies lorem ante a nulla. In facilisis nisi in dolor ultricies id hendrerit tortor suscipit.
-							</p>
-							<span class="meta">Written <em>4 days ago</em> by <em>Jill</em></span>
-							<ul class="messages">
-								<li class="well">
-									<p class="message">
-										Nascetur ridiculus mus. Phasellus enim nibh, congue nec tincidunt sed, luctus ullamcorper leo. Nunc ac mauris augue. Nam non nulla tellus, vitae volutpat nibh. Maecenas fringilla vestibulum neque vitae tristique. Ut fermentum accumsan dolor, ut tincidunt lacus dictum non. Proin non ultrices libero. Praesent hendrerit, dolor ut facilisis porta, lorem massa ullamcorper dolor, at dictum elit augue vel lorem. Pellentesque vitae elit quis erat congue gravida ac sed urna. Vivamus vitae purus lectus. Maecenas nec dui lorem. Mauris viverra, est et mattis malesuada, sapien lectus congue justo, eget ultricies lorem ante a nulla.
-									</p>
-									<span class="meta">Written <em>2 days ago</em> by <em>Jill</em></span>
-									<ul class="messages">
-										<li class="well">
-											<p class="message">
-												Etiam felis tellus.
-											</p>
-											<span class="meta">Written <em>1 day ago</em> by <em>Jill</em></span>
-										</li>
-									</ul>
-								</li>
-								<li class="well">
-									<p class="message">
-										Sapien lectus congue justo, eget ultricies lorem ante a nulla.
-									</p>
-									<span class="meta">Written <em>1 day ago</em> by <em>Jill</em></span>
-								</li>
-							</ul>
-						</li>
 					</ul>
-					<a class="toggle-link" href="#message-reply"><i class="icon-plus"></i> Reply</a>
-					<form id="message-reply" class="form-horizontal hidden">
+
+					<form id="message-reply" action="" class="form-horizontal"> <!-- class="form-horizontal hidden" -->
 						<fieldset>
-							<legend>Reply</legend>
 							<div class="control-group">
-								<label class="control-label" for="textarea">Message</label>
+								<label class="control-label" for="input">Message</label>
 								<div class="controls">
-									<textarea class="input-xlarge" id="textarea" rows="4"></textarea>
+									<input class="input-xlarge" id="mes" autocomplete="off" type="text" style="width: 98%" />
 								</div>
 							</div>
 							<div class="form-actions">
-								<button type="submit" class="btn btn-primary">Create</button> <button class="btn">Cancel</button>
+								<button type="button" class="btn btn-primary">Send</button>
 							</div>
 						</fieldset>
 					</form>
@@ -81,8 +51,30 @@
 			</div>
 		</div>
 
+		<script src="/socket.io/socket.io.js"></script>
 		<script src="/javascripts/jquery.min.js"></script>
 		<script src="/javascripts/bootstrap.min.js"></script>
 		<script src="/javascripts/site.js"></script>
+
+		<script>
+  			var socket = io.connect('http://localhost:3000');
+			
+			socket.on('connect', function(data) {
+        		socket.emit('join', 'Hello World from client');
+    		});
+
+			$('form').submit(function(e){
+				e.preventDefault();
+				socket.emit('chat message', $('#mes').val() );
+				$('#mes').val('');
+				// return false; - not refreshing the page
+			});
+
+			socket.on('chat message', function(msg){
+      			$('.messages').append($('<li class="well">').text(msg));
+    		});
+
+
+		</script>
 	</body>
 </html>

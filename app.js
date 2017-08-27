@@ -8,13 +8,9 @@ var validator = require('express-validator');
 var session = require('express-session');
 var mongoose = require('mongoose');
 var MongoStore = require('connect-mongo')(session);
-var passport = require('passport');
+var passport = require('passport')
 var flash = require('connect-flash');
-// var ang = require('angular');
 
-// var mongo = require('mongodb');
-// var monk = require('monk');
-// var db = monk('localhost:27017/dbTest');
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/dbTest1');
@@ -41,9 +37,11 @@ var tasks = require('./routes/tasks');
 
 var app = express();
 
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
 
 var User = require('./models/user');
-
 
 // view engine setup
 app.set('view engine', 'ejs');
@@ -71,7 +69,6 @@ app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
-//
 
 // Make our db accessible to our router
 app.use(function(req,res,next){
@@ -88,11 +85,11 @@ app.use(function(req, res, next) {
             User.findById( req.session.passport.user, '-password' , function(err, user) {
                 if (user) {
                     res.locals.user = user;
-                    console.log(user);
+                    // console.log(user);
                 } else {
-                    req.session.user = 'user';
+                    req.session.user = 'user'
                     res.locals.user = 'none';
-                    console.log(user);
+                    // console.log(user);
                 }
                 // finishing processing the middleware and run the route
                 next();
@@ -104,6 +101,11 @@ app.use(function(req, res, next) {
     } else {
         next();
     }
+});
+
+app.use(function(req, res, next){
+  res.io = io;
+  next();
 });
 
 app.use('/activity', activity)
@@ -140,5 +142,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
-module.exports = app;
+module.exports = {app: app, server: server};

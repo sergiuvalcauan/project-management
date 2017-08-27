@@ -1,66 +1,48 @@
-<% include templates/main.ejs%>
-<% include templates/header %>
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<title>Tasks - Akira</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+		<link href="/stylesheets/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="/stylesheets/site.css" rel="stylesheet">
+		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	</head>
+	<body>
 
+		<% include templates/header %>
 
-				<div class="" style="margin-top: 60px; margin-left:50px; padding-top: 10px;">
+				<div class="span9">
 					<h1>
 						Tasks
 					</h1>
-
-
-					<div>
-						<div id="multi" style="margin-left: 30px">
-							<div><div data-force="5" class="layer title title_xl">Multi</div></div>
-
-							<!--NOT STARTED-->
-							<div class="layer tile" data-force="30">
-								<div class="tile__name">Not Started</div>
-								<div class="tile__list">
-									<% for (var i=0; i<task.length; i++){  %>
-										<% if(task[i].Status == 'NotStarted'){ console.log(task[i])%>
-												<div>
-													<span> <%= task[i].Summary %> </span>
-													<span style="display:none;" > <%= task[i]._id %> </span>
-												</div>
-										<% } %>
-									<% } %>
-								</div>
-							</div>
-							<!--IN PROGRESS-->
-							<div class="layer tile" data-force="25">
-								<div class="tile__name">In Progress</div>
-								<div class="tile__list">
-									<% for (var i=0; i<task.length; i++){  %>
-										<% if(task[i].Status == 'InProgress'){ console.log(task[i]) %>
-										<div> <span> <%= task[i].Summary %> </span> </div>
-										<% } %>
-									<% } %>
-								</div>
-							</div>
-							<!-- COMPLETED -->
-							<div class="layer tile" data-force="20">
-								<div class="tile__name">Completed</div>
-								<div class="tile__list">
-									<% for (var i=0; i<task.length; i++){  %>
-										<% if(task[i].Status == 'Completed'){ console.log(task[i]) %>
-										<div> <span> <%= task[i].Summary %> </span> </div>
-										<% } %>
-									<% } %>
-								</div>
-							</div>
-
-						</div>
-					</div>
-
-
-					<a class="toggle-link" href="#new-task" style="position:relative;top:200px;"><i class="icon-plus"></i> New Task</a>
-					<form action="/tasks" method="POST" id="new-task" class="form-horizontal hidden" style="margin-top:200px;">
+					<ul class="tasks zebra-list">
+						<li>
+							<input type="checkbox" /> <span class="title">Thank Bill for loaning his tools last weekend</span> <span class="meta">Created <em>1 week ago</em> by <em>Jill</em></span>
+						</li>
+						<li>
+							<input type="checkbox" /> <span class="title">Pay internet bill</span> <span class="meta">Created <em>1 week ago</em> by <em>Jill</em></span>
+						</li>
+						<li>
+							<input type="checkbox" /> <span class="title">Finish reading Game of Thrones</span> <span class="meta">Created <em>1 week ago</em> by <em>Jill</em></span>
+						</li>
+						<li>
+							<input type="checkbox" /> <span class="title">Buy sunscreen for the next summer day trip</span> <span class="meta">Created <em>1 week ago</em> by <em>Jill</em></span>
+						</li>
+						<li>
+							<input type="checkbox" /> <span class="title">Send a birthday card to Frankie</span> <span class="meta">Created <em>1 week ago</em> by <em>Jill</em></span>
+						</li>
+					</ul>
+					<a class="toggle-link" href="#new-task"><i class="icon-plus"></i> New Task</a>
+					<form id="new-task" class="form-horizontal hidden">
 						<fieldset>
 							<legend>New Task</legend>
 							<div class="control-group">
 								<label class="control-label" for="textarea">Task Details</label>
 								<div class="controls">
-									<input name="taskName" class="input-xlarge" id="textarea" rows="2"></input>
+									<textarea class="input-xlarge" id="textarea" rows="2"></textarea>
 								</div>
 							</div>
 							<div class="form-actions">
@@ -68,10 +50,25 @@
 							</div>
 						</fieldset>
 					</form>
-
+					<h2>
+						Completed Tasks
+					</h2>
+					<ul class="tasks done">
+						<li>
+							<i class="icon-ok"></i> <span class="title">Wash the Car</span> <span class="meta">Completed <em>2 days ago</em> by <em>John</em></span>
+						</li>
+						<li>
+							<i class="icon-ok"></i> <span class="title">Call the plumber</span> <span class="meta">Completed <em>5 days ago</em> by <em>John</em></span>
+						</li>
+						<li>
+							<i class="icon-ok"></i> <span class="title">Try that new cookie recipe</span> <span class="meta">Completed <em>2 weeks ago</em> by <em>Jill</em></span>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
-
-
-<% include templates/main1.ejs %>
+		<script src="/javascripts/jquery.min.js"></script>
+		<script src="/javascripts/bootstrap.min.js"></script>
+		<script src="/javascripts/site.js"></script>
+	</body>
+</html>
